@@ -1,0 +1,1 @@
+dotnet ef dbcontext scaffold "Server=DESKTOP-CHGIFVH;Database=TryNetCoreDB;Trusted_Connection=True;" "Microsoft.EntityFrameworkCore.SqlServer" --output-dir "ORM/Entity" --context TryNetCoreContext
