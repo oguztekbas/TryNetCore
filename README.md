@@ -1,0 +1,2 @@
+# TryNetCore
+ İlkRepository
