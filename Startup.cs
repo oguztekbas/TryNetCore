@@ -34,7 +34,6 @@ namespace TryNetCore
         {
             if (env.IsDevelopment())
             {
-               
                 app.UseDeveloperExceptionPage();
             }
             else
@@ -56,10 +55,10 @@ namespace TryNetCore
             app.UseEndpoints(endpoints =>
             {
 
-                //endpoints.MapControllerRoute(             //Custom Routing In .Net Core
-                // name: "category",
-                // pattern: "product-category/{title}/{id?}",
-                // defaults: new { controller = "ProductCategories", action = "Details" });
+                endpoints.MapControllerRoute(             //Custom Routing In .Net Core
+                 name: "gizlilik-politikasi",
+                 pattern: "gizlilik-politikasi",
+                 defaults: new { controller = "Home", action = "Privacy" });
 
                 endpoints.MapControllerRoute(
                     name: "default",

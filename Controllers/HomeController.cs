@@ -15,27 +15,25 @@ namespace TryNetCore.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-      
         private readonly IWebHostEnvironment host;
         
         public HomeController(ILogger<HomeController> logger, IWebHostEnvironment _host)
         {
             _logger = logger;
-            
-            host = _host;
-
+             host = _host;
         }
 
         public IActionResult Index()
         {
             using (var db = new TryNetCoreContext())
             {
-                
                 //db.Tablo1.Add(new Tablo1() { Tablo1Name = "Ahmet" });
                 //db.SaveChanges();
                 ViewBag.Deneme = db.Tablo1.FirstOrDefault();
             }
+
             return View();
+
         }
 
 
@@ -44,8 +42,7 @@ namespace TryNetCore.Controllers
         {
 
            bool isSuccess = await TryNetCore.Utils.FileUpload.ImageUpload(host.ContentRootPath, file, "12c73c34-5f66-451d-9eed-399ec3b28860.jpg");
-
-            return RedirectToAction("Index", "Home");
+           return RedirectToAction("Index", "Home");
 
         }
 
@@ -54,7 +51,7 @@ namespace TryNetCore.Controllers
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        [ResponseCache(Duration = 1, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
