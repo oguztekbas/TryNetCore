@@ -4,3 +4,14 @@
 <h1>@ViewData["Title"]</h1>
 
 <p>Use this page to detail your site's privacy policy.</p>
+@await Component.InvokeAsync("DenemeComponent")
+@await Component.InvokeAsync("DenemeComponent2")
+<br />
+
+
+
+<form action="/Home/TryFileUpload" method="post" enctype="multipart/form-data">
+
+    <input type="file" name="file" />
+    <input type="submit" value="Resmi Ekle" />
+</form>

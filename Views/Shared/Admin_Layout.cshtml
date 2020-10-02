@@ -98,7 +98,7 @@
                             <ul class="nav-right">
                                 <li class="user-profile header-notification">
                                     <a href="#!">
-                                        <img src="/Admin/assets/images/social/avatar-1.png" alt="User-Profile-Image">
+                                        <img src="/Admin/assets/images/social/oguz.jpg" alt="User-Profile-Image">
                                         <span>Yönetim Paneli</span>
                                         <i class="ti-angle-down"></i>
                                     </a>
@@ -145,15 +145,22 @@
                                 <li class="pcoded-hasmenu" dropdown-icon="style3" subitem-icon="style6">
                                     <a href="#" data-i18n="nav.navigate.main">
                                         <span class="pcoded-micon"><i class="ti-layout-cta-right"></i></span>
-                                        <span class="pcoded-mtext">Anasayfa Yönetimi</span>
+                                        <span class="pcoded-mtext">Blog Yönetimi</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                     <ul class="pcoded-submenu">
 
                                         <li class="">
-                                            <a href="@Url.Action("UpdateSiteInfos","Admin")" data-i18n="nav.navigate.navbar-inverse">
+                                            <a href="@Url.Action("AddBlog","Admin")" data-i18n="nav.navigate.navbar-inverse">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext">Anasayfa Bilgileri Ekle</span>
+                                                <span class="pcoded-mtext">Blog Ekle</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="@Url.Action("BlogIndex","Admin")" data-i18n="nav.navigate.navbar-inverse">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext">Blog Listesi</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>

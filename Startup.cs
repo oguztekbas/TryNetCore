@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using TryNetCore.ORM.Entity;
+
 
 namespace TryNetCore
 {
@@ -55,15 +55,17 @@ namespace TryNetCore
             app.UseEndpoints(endpoints =>
             {
 
-                endpoints.MapControllerRoute(             //Custom Routing In .Net Core
+             endpoints.MapControllerRoute(             //Custom Routing In .Net Core
               name: "admin-index",
               pattern: "admin",
               defaults: new { controller = "Admin", action = "Index" });
 
+            
+
                 endpoints.MapControllerRoute(             //Custom Routing In .Net Core
-                 name: "gizlilik-politikasi",
-                 pattern: "gizlilik-politikasi",
-                 defaults: new { controller = "Home", action = "Privacy" });
+              name: "gizlilik-politikasi",
+              pattern: "gizlilik-politikasi",
+              defaults: new { controller = "Home", action = "Privacy" });
 
                 endpoints.MapControllerRoute(
                     name: "default",

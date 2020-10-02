@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using TryNetCore.Models;
-using TryNetCore.ORM.Entity;
+
 
 namespace TryNetCore.Controllers
 {
@@ -25,12 +25,15 @@ namespace TryNetCore.Controllers
 
         public IActionResult Index()
         {
-            using (var db = new TryNetCoreContext())
-            {
-                //db.Tablo1.Add(new Tablo1() { Tablo1Name = "Ahmet" });
-                //db.SaveChanges();
-                ViewBag.Deneme = db.Tablo1.FirstOrDefault();
-            }
+           
+
+            return View();
+
+        }
+
+        public IActionResult BlogSingle()
+        {
+            
 
             return View();
 

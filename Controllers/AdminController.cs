@@ -13,11 +13,44 @@ namespace TryNetCore.Controllers
             return View();
         }
 
+        public IActionResult AddBlog()
+        {
+
+            return View();
+        }
+
+        public IActionResult UpdateBlog()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult UpdateBlog(int id)
+        {
+
+            return RedirectToAction("BlogIndex", "Admin");
+        }
+
+        public IActionResult BlogIndex()
+        {
+
+            return View();
+        }
+
         public IActionResult Login()
         {
 
 
             return View();
+
+        }
+
+        public IActionResult Logout()
+        {
+
+
+            return RedirectToAction("Index", "Home");
 
         }
     }
