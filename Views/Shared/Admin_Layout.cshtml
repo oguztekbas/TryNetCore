@@ -1,0 +1,263 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Yönetim Paneli</title>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="/Admin/assets/images/favicon.ico" type="/Content/image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+   
+    <link rel="stylesheet" type="text/css" href="/Admin/assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/Admin/assets/icon/themify-icons/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="/Admin/assets/icon/icofont/css/icofont.css">
+    <link rel="stylesheet" type="text/css" href="/Admin/assets/pages/flag-icon/flag-icon.min.css">
+    <link rel="stylesheet" type="text/css" href="/Admin/assets/pages/menu-search/css/component.css">
+    <link rel="stylesheet" type="text/css" href="/Admin/assets/pages/data-table/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="/Admin/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/Admin/assets/css/color/color-1.css" id="color" />
+    <link rel="stylesheet" type="text/css" href="/Admin/assets/css/linearicons.css">
+    <link rel="stylesheet" type="text/css" href="/Admin/assets/css/simple-line-icons.css">
+    <link rel="stylesheet" type="text/css" href="/Admin/assets/css/ionicons.css">
+    <link rel="stylesheet" type="text/css" href="/Admin/assets/css/jquery.mCustomScrollbar.css">
+
+    <link rel="stylesheet" type="text/css" href="/Admin/assets/bower_components/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="/Admin/assets/bower_components/select2/dist/css/select2.min.css" />
+    <link rel="stylesheet" type="text/css" href="/Admin/assets/bower_components/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css">
+    <link href="/Admin/assets/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
+    <link href="/Admin/assets/bower_components/toastr/toastr.min.css" rel="stylesheet" />
+
+    <link href="~/Admin/assets/bower_components/datepicker-bootstrap/css/bootstrap-datepicker.css" rel="stylesheet" />
+
+    <link href="~/Content/font-awesome/css/fontawesome.css" rel="stylesheet" />
+
+
+
+
+    @*<link href="~/Content/Client/js/Summernote/summernote.css" rel="stylesheet" />*@
+
+    @RenderSection("head", required: false)
+
+    <style>
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+            padding: 1px 30px 8px 20px !important;
+        }
+
+        .select2-container--default .select2-selection--multiple .select2-selection__choice {
+            background-color: lightgray !important;
+        }
+
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+            background-color: #fff !important;
+        }
+
+        .select2-container .select2-selection--single {
+            height: unset !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="theme-loader">
+        <div class="ball-scale">
+            <div></div>
+        </div>
+    </div>
+    <div id="pcoded" class="pcoded">
+        <div class="pcoded-overlay-box"></div>
+        <div class="pcoded-container navbar-wrapper">
+            <nav class="navbar header-navbar pcoded-header" header-theme="theme4">
+                <div class="navbar-wrapper">
+                    <div class="navbar-logo">
+                        <a class="mobile-menu" id="mobile-collapse" href="#!">
+                            <i class="ti-menu"></i>
+                        </a>
+                        <a class="mobile-search morphsearch-search" href="#">
+                            <i class="ti-search"></i>
+                        </a>
+                        <a href="@Url.Action("Index","Admin")"></a>
+                        <a class="mobile-options">
+                            <i class="ti-more"></i>
+                        </a>
+                    </div>
+                    <div class="navbar-container container-fluid">
+                        <div>
+                            <ul class="nav-left">
+                                <li>
+                                    <div class="sidebar_toggle"><a href="javascript:void(0)"><i class="ti-menu"></i></a></div>
+                                </li>
+                                <li>
+                                    <a href="#!" onclick="javascript:toggleFullScreen()">
+                                        <i class="ti-fullscreen"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav-right">
+                                <li class="user-profile header-notification">
+                                    <a href="#!">
+                                        <img src="/Admin/assets/images/social/avatar-1.png" alt="User-Profile-Image">
+                                        <span>Yönetim Paneli</span>
+                                        <i class="ti-angle-down"></i>
+                                    </a>
+                                    <ul class="show-notification profile-notification">
+                                        <li>
+                                            <a href="@Url.Action("Logout","Admin")">
+                                                <i class="ti-layout-sidebar-left"></i> Çıkış
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div id="sidebar" class="users p-chat-user showChat">
+                <div class="had-container">
+                    <div class="card card_main p-fixed users-main">
+                        <div class="user-box">
+                            <div class="card-block">
+                                <div class="right-icon-control">
+                                    <input type="text" class="form-control  search-text" placeholder="Search Friend" id="search-friends">
+                                    <div class="form-icon">
+                                        <i class="icofont icofont-search"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pcoded-main-container">
+                <div class="pcoded-wrapper">
+                    <nav class="pcoded-navbar" pcoded-header-position="relative">
+                        <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
+                        <div class="pcoded-inner-navbar main-menu">
+                            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation" menu-title-theme="theme5">Menü</div>
+                            <ul class="pcoded-item pcoded-left-item">
+
+                                <li class="pcoded-hasmenu" dropdown-icon="style3" subitem-icon="style6">
+                                    <a href="#" data-i18n="nav.navigate.main">
+                                        <span class="pcoded-micon"><i class="ti-layout-cta-right"></i></span>
+                                        <span class="pcoded-mtext">Anasayfa Yönetimi</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+
+                                        <li class="">
+                                            <a href="@Url.Action("UpdateSiteInfos","Admin")" data-i18n="nav.navigate.navbar-inverse">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext">Anasayfa Bilgileri Ekle</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                           
+
+
+
+                            </ul>
+                        </div>
+                    </nav>
+                    <div class="pcoded-content">
+                        <div class="pcoded-inner-content">
+                            <div class="main-body">
+                                <div class="page-wrapper">
+                                    <div class="page-header">
+                                        <div class="page-header-title">
+                                            <h4>@ViewBag.SayfaBasligi</h4>
+                                            <span>@Html.Raw(ViewBag.SayfaAciklamasi)</span>
+                                            @if (TempData["Hata"] != null)
+                                            {
+                                                <div class="alert alert-danger background-danger">
+                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                        <i class="icofont icofont-close-line-circled text-white"></i>
+                                                    </button>
+                                                    @TempData["Hata"].ToString()
+                                                </div>
+                                            }
+                                        </div>
+                                        <div class="page-header-breadcrumb">
+                                            <ul class="breadcrumb-title">
+                                                <li class="breadcrumb-item">
+                                                    <a href="@Url.Action("Index","Admin")">
+                                                        <i class="icofont icofont-home"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="breadcrumb-item">
+                                                    <a>@ViewBag.Kategori</a>
+                                                </li>
+                                                <li class="breadcrumb-item">
+                                                    <a>@ViewBag.IcerikAdi</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="page-body">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                @RenderBody()
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="styleSelector">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/Admin/assets/bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/Admin/assets/bower_components/jquery-ui/jquery-ui.min.js"></script>
+
+    <script type="text/javascript" src="/Admin/assets/bower_components/jquery-slimscroll/jquery.slimscroll.js"></script>
+    <script type="text/javascript" src="/Admin/assets/bower_components/jquery-i18next/jquery-i18next.min.js"></script>
+    <script type="text/javascript" src="/Admin/assets/bower_components/tether/dist/js/tether.min.js"></script>
+    <script type="text/javascript" src="/Admin/assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/Admin/assets/bower_components/modernizr/modernizr.js"></script>
+    <script type="text/javascript" src="/Admin/assets/bower_components/modernizr/feature-detects/css-scrollbars.js"></script>
+    <script type="text/javascript" src="/Admin/assets/bower_components/classie/classie.js"></script>
+    <script type="text/javascript" src="/Admin/assets/bower_components/i18next/i18next.min.js"></script>
+    <script type="text/javascript" src="/Admin/assets/bower_components/i18next-xhr-backend/i18nextXHRBackend.min.js"></script>
+    <script type="text/javascript" src="/Admin/assets/bower_components/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js"></script>
+    <script src="/Admin/assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="/Admin/assets/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="/Admin/assets/pages/data-table/js/jszip.min.js"></script>
+    <script src="/Admin/assets/pages/data-table/js/pdfmake.min.js"></script>
+    <script src="/Admin/assets/pages/data-table/js/vfs_fonts.js"></script>
+    <script src="/Admin/assets/bower_components/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="/Admin/assets/bower_components/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="/Admin/assets/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="/Admin/assets/assets/pages/data-table/extensions/responsive/js/dataTables.responsive.min.js"></script>
+    <script src="/Admin/assets/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+    <script src="/Admin/assets/js/script.js" type="text/javascript"></script>
+    <script src="/Admin/assets/js/pcoded.min.js"></script>
+    <script src="/Admin/assets/js/demo-12.js"></script>
+    <script src="/Admin/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="/Admin/assets/js/jquery.mousewheel.min.js"></script>
+    <script src="/Admin/assets/js/Site.js"></script>
+    <script src="/Admin/assets/bower_components/toastr/toastr.min.js"></script>
+    <script src="/Admin/assets/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.js"></script>
+    <script src="/Admin/assets/bower_components/imask/imask.min.js"></script>
+
+    <script src="~/Admin/assets/bower_components/datepicker-bootstrap/js/bootstrap-datepicker.js"></script>
+    <script src="/Admin/assets/bower_components/datepicker-bootstrap/js/bootstrap-datepicker.tr.min.js"></script>
+
+    <script src="~/Content/jquery-input-mask-phone-number.js"></script>
+
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

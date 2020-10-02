@@ -5,6 +5,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="wwwroot\Admin\assets\bower_components\bootstrap-tagsinput\dist\bootstrap-tagsinput.css" />
+    <Content Include="wwwroot\Admin\assets\bower_components\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="wwwroot\Admin\assets\bower_components\datatables.net-bs4\css\dataTables.bootstrap4.min.css" />
+    <Content Include="wwwroot\Admin\assets\bower_components\datatables.net-responsive-bs4\css\responsive.bootstrap4.min.css" />
+    <Content Include="wwwroot\Admin\assets\bower_components\datepicker-bootstrap\css\bootstrap-datepicker.css" />
+    <Content Include="wwwroot\Admin\assets\bower_components\datepicker-bootstrap\css\bootstrap-datepicker.min.css" />
+    <Content Include="wwwroot\Admin\assets\bower_components\fullcalendar\dist\fullcalendar.css" />
+    <Content Include="wwwroot\Admin\assets\bower_components\fullcalendar\dist\fullcalendar.print.css" />
+    <Content Include="wwwroot\Admin\assets\bower_components\select2\dist\css\select2.min.css" />
+    <Content Include="wwwroot\Admin\assets\bower_components\toastr\toastr.css" />
+    <Content Include="wwwroot\Admin\assets\bower_components\toastr\toastr.min.css" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Magick.NET-Q16-AnyCPU" Version="7.22.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.8">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -15,7 +29,44 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\Admin\assets\bundles\" />
     <Folder Include="wwwroot\uploadimages\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Admin\assets\bower_components\bootstrap-tagsinput\dist\bootstrap-tagsinput.js" />
+    <None Include="wwwroot\Admin\assets\bower_components\bootstrap\dist\js\bootstrap.min.js" />
+    <None Include="wwwroot\Admin\assets\bower_components\classie\classie.js" />
+    <None Include="wwwroot\Admin\assets\bower_components\datatables.net-bs4\js\dataTables.bootstrap4.min.js" />
+    <None Include="wwwroot\Admin\assets\bower_components\datatables.net-buttons\js\buttons.html5.min.js" />
+    <None Include="wwwroot\Admin\assets\bower_components\datatables.net-buttons\js\buttons.print.min.js" />
+    <None Include="wwwroot\Admin\assets\bower_components\datatables.net-buttons\js\dataTables.buttons.min.js" />
+    <None Include="wwwroot\Admin\assets\bower_components\datatables.net-responsive-bs4\js\responsive.bootstrap4.min.js" />
+    <None Include="wwwroot\Admin\assets\bower_components\datatables.net\js\jquery.dataTables.min.js" />
+    <None Include="wwwroot\Admin\assets\bower_components\datepicker-bootstrap\css\bootstrap-datepicker.css.map" />
+    <None Include="wwwroot\Admin\assets\bower_components\datepicker-bootstrap\js\bootstrap-datepicker.js" />
+    <None Include="wwwroot\Admin\assets\bower_components\datepicker-bootstrap\js\bootstrap-datepicker.min.js" />
+    <None Include="wwwroot\Admin\assets\bower_components\datepicker-bootstrap\js\bootstrap-datepicker.tr.min.js" />
+    <None Include="wwwroot\Admin\assets\bower_components\fullcalendar\dist\calendar.js" />
+    <None Include="wwwroot\Admin\assets\bower_components\fullcalendar\dist\fullcalendar.min.js" />
+    <None Include="wwwroot\Admin\assets\bower_components\fullcalendar\dist\locale-all.js" />
+    <None Include="wwwroot\Admin\assets\bower_components\fullcalendar\dist\moment.min.js" />
+    <None Include="wwwroot\Admin\assets\bower_components\fullcalendar\dist\tr.js" />
+    <None Include="wwwroot\Admin\assets\bower_components\i18next-browser-languagedetector\i18nextBrowserLanguageDetector.min.js" />
+    <None Include="wwwroot\Admin\assets\bower_components\i18next-xhr-backend\i18nextXHRBackend.min.js" />
+    <None Include="wwwroot\Admin\assets\bower_components\i18next\i18next.min.js" />
+    <None Include="wwwroot\Admin\assets\bower_components\imask\imask.js" />
+    <None Include="wwwroot\Admin\assets\bower_components\imask\imask.min.js" />
+    <None Include="wwwroot\Admin\assets\bower_components\jquery-i18next\jquery-i18next.min.js" />
+    <None Include="wwwroot\Admin\assets\bower_components\jquery-slimscroll\jquery.slimscroll.js" />
+    <None Include="wwwroot\Admin\assets\bower_components\jquery-ui\jquery-ui.min.js" />
+    <None Include="wwwroot\Admin\assets\bower_components\jquery\dist\jquery.min.js" />
+    <None Include="wwwroot\Admin\assets\bower_components\modernizr\feature-detects\css-scrollbars.js" />
+    <None Include="wwwroot\Admin\assets\bower_components\modernizr\modernizr.js" />
+    <None Include="wwwroot\Admin\assets\bower_components\select2\dist\js\select2.full.min.js" />
+    <None Include="wwwroot\Admin\assets\bower_components\tether\dist\js\tether.min.js" />
+    <None Include="wwwroot\Admin\assets\bower_components\toastr\toastr.js.map" />
+    <None Include="wwwroot\Admin\assets\bower_components\toastr\toastr.min.js" />
   </ItemGroup>
 
 

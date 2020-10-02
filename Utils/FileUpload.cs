@@ -44,7 +44,8 @@ namespace TryNetCore.Utils
                             }
                             FileInfo filecompress = new FileInfo(path);
                             var optimizer = new ImageOptimizer();
-                            bool isSuccess = optimizer.Compress(filecompress.FullName);
+                            bool isSuccess = optimizer.LosslessCompress(filecompress.FullName);
+                          
 
                             filecompress.Refresh();
                             return true;
