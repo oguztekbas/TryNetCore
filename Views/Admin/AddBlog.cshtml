@@ -1,0 +1,217 @@
+﻿
+@{
+    ViewData["Title"] = "Blog Ekle";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+@section Head{
+
+    <link href="~/Admin/Summernote/summernote.min.css" rel="stylesheet" />
+}
+
+<h1>Blog Ekle</h1>
+<br />
+
+<form id="myform" method="post" enctype="multipart/form-data">
+
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">BLOG ADI</label>
+        <div class="col-sm-10" style="text-align:center;">
+            <input type="text" id="blogname" name="blogname" class="form-control form-control-success" />
+        </div>
+
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">BLOG KATEGORİSİ</label>
+        <div class="col-sm-10" style="text-align:center;">
+            <input type="text" id="blogcategoryname" name="blogcategoryname" class="form-control form-control-success" />
+        </div>
+
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">BLOG YAZARI</label>
+        <div class="col-sm-10" style="text-align:center;">
+            <input type="text" id="blogauthorname" name="blogauthorname" class="form-control form-control-success" />
+        </div>
+
+    </div>
+
+
+
+    <div class="row">
+        <label class="col-sm-2 col-form-label">BLOG RESMİ</label>
+        <div class="col-sm-6">
+            <img id="blogimagejs" src="" style=" width:100%; height:150px; object-fit:cover; object-position:center;" />
+
+        </div>
+        <div class="col-sm-4">
+            <input id="blogimage" name="blogimage" class="form-control" type="file" />
+        </div>
+
+    </div>
+    <br />
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">BLOG İÇERİĞİ</label>
+        <div class="col-sm-10">
+            <textarea id="blogcontent" name="blogcontent">BLOG İÇERİĞİ GİRİNİZ.</textarea>
+        </div>
+
+    </div>
+
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">BLOG ETİKETLERİ</label>
+        <div class="col-sm-10">
+            <input name="blogtags" class="" type="text" value="" data-role="tagsinput" style="display: none;">
+        </div>
+
+    </div>
+ ,
+  
+
+    <br />  <br />
+
+    <div class="row text-center mx-auto">
+        @*<input id="kaydet" class="col-4 btn btn-lg btn-primary" type="submit" value="GUNCELLE">*@
+        <button style="width:40%;" role="button" id="kaydet" type="submit" class="btn btn-primary">BLOG EKLE</button>
+
+    </div>
+
+
+</form>
+
+@section Scripts{
+
+    <script type="text/javascript">
+        function readURL(input, input2) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $(input2).attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#blogimage").change(function () {
+            readURL(this, $('#blogimagejs'));
+        });
+
+    </script>
+
+
+
+    <script src="~/Admin/Summernote/summernote.min.js"></script>
+    <script>
+
+
+        $('#blogcontent').summernote({
+            height: 300,                 // set editor height
+            minHeight: null,             // set minimum height of editor
+            maxHeight: null,             // set maximum height of editor
+            focus: true,
+            // set focus to editable area after initializing summernote
+            //toolbar: [
+            //    // [groupName, [list of button]]
+            //    ['style', ['bold', 'italic', 'underline', 'clear']],
+            //    ['font', ['strikethrough', 'superscript', 'subscript']],
+            //    ['fontsize', ['fontsize']],
+            //    ['color', ['color']],
+            //    ['para', ['ul', 'ol', 'paragraph']],
+            //    ['height', ['height']]
+            //]
+
+        }
+        );
+
+    </script>
+
+
+
+    <script>
+
+        var ErrorMessage = "";
+
+        function ValidateBlog() {
+
+            ErrorMessage = "";
+            var fileExtension = ['jpeg', 'jpg', 'JPEG', 'JPG', 'png', 'PNG'];
+
+
+            if ($("#blogimage").val() != 0) {
+                if ($.inArray($("#blogimage").val().split('.').pop().toLowerCase(), fileExtension) == -1) {
+                    ErrorMessage = ErrorMessage + "<div> <b>-Sadece Jpeg jpg png formatında Resim girebilirsiniz </b> </div>";
+                }
+            }
+
+            if ($("#blogimage").val() == 0) {
+
+                ErrorMessage = ErrorMessage + "<div><b>-Bir Blog Resmi Girmelisiniz. </b> </div>";
+
+            }
+
+
+
+            if ($("#blogname").val() == false) {
+                ErrorMessage = ErrorMessage + "<div><b>-Blog Adı Girmelisiniz </b> </div>";
+            }
+
+            if ($("#blogcategoryname").val() == false) {
+                ErrorMessage = ErrorMessage + "<div><b>-Blog Kategorisi Girmelisiniz </b> </div>";
+            }
+
+            if ($("#blogauthorname").val() == false) {
+                ErrorMessage = ErrorMessage + "<div><b>-Blog Yazarı Girmelisiniz </b> </div>";
+            }
+
+            if ($("#blogcontent").val() == false) {
+                ErrorMessage = ErrorMessage + "<div><b>-Blog İçeriği Girmelisiniz </b> </div>";
+            }
+
+            if (ErrorMessage == "") {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+
+        $(document).on('submit', '#myform', function (event) {
+            event.preventDefault();
+
+            if (ValidateBlog() == true) {
+
+                $.ajax({
+                    url: '/Admin/AddBlog',
+                    data: new FormData(this),
+                    type: 'POST',
+                    //mimeType: "multipart/form-data",
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (result) {
+                        console.log(result.message);
+                        toastr.success(result.message);
+
+                    },
+                    error: function (result) {
+                        console.log(result.message);
+                        toastr.error("Eklenemedi!");
+                    }
+                });
+            }
+
+            else {
+                console.log("ValidationHatası");
+                toastr.error(ErrorMessage);
+            }
+        });
+    </script>
+
+
+}

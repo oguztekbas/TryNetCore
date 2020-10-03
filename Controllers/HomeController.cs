@@ -44,7 +44,7 @@ namespace TryNetCore.Controllers
         public async Task<IActionResult> TryFileUpload(IFormFile file)
         {
 
-           bool isSuccess = await TryNetCore.Utils.FileUpload.ImageUpload(host.ContentRootPath, file, "12c73c34-5f66-451d-9eed-399ec3b28860.jpg");
+           string isSuccess = await TryNetCore.Utils.FileUpload.ImageUpload(host.ContentRootPath, file, "12c73c34-5f66-451d-9eed-399ec3b28860.jpg");
            return RedirectToAction("Index", "Home");
 
         }

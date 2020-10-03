@@ -12,7 +12,7 @@ namespace TryNetCore.Utils
     public class FileUpload
     {
         // .Net Core'da File Upload
-        public async static Task<bool> ImageUpload(string hostrootpath, IFormFile file, string oldimagepath = null)
+        public async static Task<String> ImageUpload(string hostrootpath, IFormFile file, string oldimagepath = null)
         {
             try
             {
@@ -48,18 +48,18 @@ namespace TryNetCore.Utils
                           
 
                             filecompress.Refresh();
-                            return true;
+                            return $"/uploadimages/{filename}";
                         }
-                        return false;
+                        return "Uzantı Hatası";
                     }
-                    return false;
+                    return "Boyut Hatası";
                 }
-                return false;
+                return "Null Hatası";
             }
             catch (Exception e)
             {
                 var a = e.Message;
-                return false;
+                return "Exception Hatası";
             }
         }
     }
