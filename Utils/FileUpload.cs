@@ -35,19 +35,19 @@ namespace TryNetCore.Utils
                           
                             if (oldimagepath != null) 
                             {
-                                 System.IO.File.Delete(Path.Combine(hostrootpath, "wwwroot", "uploadimages", oldimagepath));
+                                 System.IO.File.Delete(Path.Combine(hostrootpath, "wwwroot", oldimagepath.Remove(0,1)));
                             }
                 
                             using (var stream = new FileStream(path, FileMode.OpenOrCreate))
                             {
                                 await file.CopyToAsync(stream);
                             }
-                            FileInfo filecompress = new FileInfo(path);
-                            var optimizer = new ImageOptimizer();
-                            bool isSuccess = optimizer.LosslessCompress(filecompress.FullName);
+                            //FileInfo filecompress = new FileInfo(path);
+                            //var optimizer = new ImageOptimizer();
+                            //bool isSuccess = optimizer.LosslessCompress(filecompress.FullName);
                           
 
-                            filecompress.Refresh();
+                            //filecompress.Refresh();
                             return $"/uploadimages/{filename}";
                         }
                         return "Uzantı Hatası";

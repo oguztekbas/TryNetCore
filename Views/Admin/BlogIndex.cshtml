@@ -1,0 +1,64 @@
+﻿
+@model IEnumerable<EntityLayer.ORM.Entity.Blog>
+
+@{
+    ViewData["Title"] = "BlogIndex";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+    int count = 1;
+}
+
+<div class="card-block" style="background-color:white">
+    <div class="dt-responsive table-responsive">
+        <table class="table" id="basic-btn">
+            <thead>
+                <tr>
+                    <td>#</td>
+                    <td>Blog Adı</td>
+                    <td>Blog Resmi</td>
+                    <td>Blog Kategori</td>
+                    <td>Blog Yazarı</td>
+                    <td>İşlemler</td>
+
+                </tr>
+            </thead>
+            <tbody>
+                
+                @foreach (var blog in Model)
+                {
+                <tr>
+                    <td>@count</td>
+                    <td><a href="@Url.Action("UpdateBlog","Admin",new {blogid = blog.Id })">@blog.BlogName</a></td>
+                    <td><a href=""><img style="width:150px; height:90px; object-fit:cover; object-position:center;" src="@blog.BlogImagePath" /></a></td>
+                    @{
+                        count = count + 1;
+                    }
+                    <td>@blog.BlogCategoryName</td>
+                    <td>@blog.BlogAuthor</td>
+                    <td><a href="@Url.Action("RemoveBlog","Admin",new { blogid = @blog.Id })" class="btn-lg btn-danger" >Sil</a></td>
+                </tr>
+                }
+
+                
+
+                
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>#</td>
+                    <td>Blog Adı</td>
+                    <td>Blog Resmi</td>
+                    <td>Blog Kategori</td>
+                    <td>Blog Yazarı</td>
+
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+@section Scripts{
+
+    <script>$('#basic-btn').DataTable();</script>
+}
+

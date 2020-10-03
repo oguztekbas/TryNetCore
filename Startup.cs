@@ -60,7 +60,12 @@ namespace TryNetCore
               pattern: "admin",
               defaults: new { controller = "Admin", action = "Index" });
 
-            
+                endpoints.MapControllerRoute(             //Custom Routing In .Net Core
+             name: "admin-bloglar",
+             pattern: "bloglar",
+             defaults: new { controller = "Admin", action = "BlogIndex" });
+
+
 
                 endpoints.MapControllerRoute(             //Custom Routing In .Net Core
               name: "gizlilik-politikasi",
