@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
+using EntityLayer.ORM.Entity;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using TryNetCore.Models;
 
 
@@ -25,9 +28,11 @@ namespace TryNetCore.Controllers
 
         public IActionResult Index()
         {
+
            
 
             return View();
+
 
         }
 
@@ -40,6 +45,40 @@ namespace TryNetCore.Controllers
         }
 
 
+        
+
+
+        //[HttpPost]
+        //public IActionResult Post()
+        //{
+        //    var response = Request["g-recaptcha-response"];
+        //    const string secret = "6LeKKSMUAAAAAC4s-mflMky8XggtaatxKcx-cQ1y";
+        //    //Kendi Secret keyinizle değiştirin.
+
+        //    var client = new WebClient();
+        //    var reply =
+        //        client.DownloadString(
+        //            string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secret, response));
+
+        //    var captchaResponse = JsonConvert.DeserializeObject<CaptchaResponse>(reply);
+
+        //    if (!captchaResponse.Success)
+        //        TempData["Message"] = "Lütfen güvenliği doğrulayınız.";
+        //    else
+        //        TempData["Message"] = "Güvenlik başarıyla doğrulanmıştır.";
+        //    return RedirectToAction("Index");
+        //}
+
+            [HttpPost]
+            
+        public async Task<IActionResult> ContactForm(ContactForm form)
+        {
+
+            await TryNetCore.Utils.SendMail.emailSend("no-reply@oguztekbas.site", "info@oguztekbas.site", "Oğuz", "Oğuz İletişim Mesajı", "İletişim Mesaj İçeriği", "oguz*1234");
+            return RedirectToAction("Index","Home");
+        
+        }
+
         [HttpPost]
         public async Task<IActionResult> TryFileUpload(IFormFile file)
         {
@@ -51,7 +90,14 @@ namespace TryNetCore.Controllers
 
         public IActionResult Privacy()
         {
-            return View();
+
+            using (var db = new TryNetCoreContext())
+            {
+
+                var model = db.Blog.FirstOrDefault();
+                return View(model);
+            }
+            
         }
 
         [ResponseCache(Duration = 1, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -61,3 +107,5 @@ namespace TryNetCore.Controllers
         }
     }
 }
+
+

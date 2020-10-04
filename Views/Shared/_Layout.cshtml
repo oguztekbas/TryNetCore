@@ -16,6 +16,7 @@
     <meta name="description" content="BreezyCV - Resume / CV / vCard Template" />
     <meta name="keywords" content="vcard, resposnive, retina, resume, jquery, css3, bootstrap, Material CV, portfolio" />
     <meta name="author" content="lmpixels" />
+
     <link rel="shortcut icon" href="favicon.ico">
 
 
@@ -26,13 +27,21 @@
     <link rel="stylesheet" href="/Client/css/owl.carousel.css" type="text/css">
     <link rel="stylesheet" href="/Client/css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="/Client/css/main.css" type="text/css">
-
-    @RenderSection("Head",false)
+    @*<script src="https://www.google.com/recaptcha/api.js"></script>*@
+    <link href="/Admin/assets/bower_components/toastr/toastr.min.css" rel="stylesheet" />
+    @RenderSection("Head", false)
 
     <script src="/Client/js/modernizr.custom.js"></script>
 </head>
 
 <body>
+
+    <div style="position:fixed; top:20px; right:40px;"> 
+        <a href="@Url.Action("Index","Admin")">
+           Yönetim <i class="fa fa-user" aria-hidden="true"></i>
+        </a>
+    </div>
+
     <!-- Animated Background -->
     <div class="lm-animated-bg" style="background-image: url(/Client/img/main_bg.png);"></div>
     <!-- /Animated Background -->
@@ -59,21 +68,25 @@
                     </div>
                 </div>
 
-                @RenderSection("Menu",false)
+                @RenderSection("Menu", false)
 
                 <div class="social-links">
                     <ul>
-                        <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-                        <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                        <li>Linked</li>
+                        <li><a href="https://tr.linkedin.com/in/okan-o%C4%9Fuz-tekba%C5%9F-7a470314b" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                        <li>Github</li>
+                        <li><a href="https://github.com/oguztekbas" target="_blank"><i class="fab fa-github"></i></a></li>
+                        
+                        @*<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>*@
                     </ul>
                 </div>
 
                 <div class="header-buttons">
-                    <a href="#" target="_blank" class="btn btn-primary">MERHABA</a>
+                    <a href="#about-me"  class="btn btn-primary">CV</a>
                 </div>
 
-                <div class="copyrights">© 2020 All rights reserved.</div>
+                <div class="copyrights">© 2020 Tüm Hakları Saklıdır.</div>
             </header>
 
             <!-- Mobile Navigation -->
@@ -83,18 +96,18 @@
                 <span></span>
             </div>
             <!-- End Mobile Navigation -->
-           @RenderBody()
+            @RenderBody()
 
         </div>
     </div>
 
-    <script data-cfasync="false" src="../../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+
     <script src="/Client/js/jquery-2.1.3.min.js"></script>
     <script src="/Client/js/modernizr.custom.js"></script>
     <script src="/Client/js/animating.js"></script>
 
     <script src="/Client/js/imagesloaded.pkgd.min.js"></script>
-    <script src='../../../../../www.google.com/recaptcha/api.js'></script>
+
 
     <script src='/Client/js/perfect-scrollbar.min.js'></script>
     <script src='/Client/js/jquery.shuffle.min.js'></script>
@@ -106,8 +119,10 @@
     <script src="/Client/js/jquery.googlemap.js"></script>
     <script src="/Client/js/validator.js"></script>
     <script src="/Client/js/main.js"></script>
+    <script src="/Admin/assets/bower_components/toastr/toastr.min.js"></script>
 
-    @RenderSection("Scripts",false)
+
+    @RenderSection("Scripts", false)
 
 </body>
 

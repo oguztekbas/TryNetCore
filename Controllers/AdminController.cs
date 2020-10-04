@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-
 using EntityLayer.ORM.Entity;
 using HtmlAgilityPack;
 using Microsoft.AspNetCore.Hosting;
@@ -12,8 +11,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using TryNetCore.Filter;
 using TryNetCore.Models;
 using TryNetCore.Utils;
+
 
 namespace TryNetCore.Controllers
 {
@@ -29,11 +30,13 @@ namespace TryNetCore.Controllers
             host = _host;
         }
 
+        [ServiceFilter(typeof(AdminLoginFilter))]
         public IActionResult Index()
         {
             return View();
         }
 
+        [ServiceFilter(typeof(AdminLoginFilter))]
         public IActionResult AddBlog()
         {
           
@@ -134,6 +137,7 @@ namespace TryNetCore.Controllers
             
         }
 
+        [ServiceFilter(typeof(AdminLoginFilter))]
         public IActionResult UpdateBlog(int blogid)
         {
             try
@@ -159,6 +163,7 @@ namespace TryNetCore.Controllers
             
         }
 
+        [ServiceFilter(typeof(AdminLoginFilter))]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> UpdateBlog(AddBlog blog ,int blogid)
@@ -271,6 +276,7 @@ namespace TryNetCore.Controllers
             }
         }
 
+        [ServiceFilter(typeof(AdminLoginFilter))]
         public IActionResult BlogIndex()
         {
             try
@@ -291,6 +297,7 @@ namespace TryNetCore.Controllers
          
         }
 
+        [ServiceFilter(typeof(AdminLoginFilter))]
         public async Task<IActionResult> RemoveBlog(int blogid) 
         {
             
@@ -324,17 +331,42 @@ namespace TryNetCore.Controllers
 
             
         }
+
+        
         public IActionResult Login()
         {
-
-
             return View();
+        }
+        
+        [HttpPost]
+        public async Task<IActionResult> Login(string username , string password)
+        {
+            if (HttpContext.Session.Get("Admin") != null)
+            { return RedirectToAction("Index", "Admin"); }
+            else
+            {
+                using (var db = new TryNetCoreContext())
+                {
+                    User user = await db.User.Where(i => i.Username == username && i.Password == password).FirstOrDefaultAsync();
+                    if (user != null)
+                    {
+                        HttpContext.Session.SetString("Admin", user.Username);
+                        return RedirectToAction("Index", "Admin");
+                    }
+                    else
+                    {
+                        TempData["Hata"] = "Kullanıcı Adı veya Parola Yanlış";
+                        return View();
+                    }
+                }
+            }
 
         }
 
         public IActionResult Logout()
         {
 
+            HttpContext.Session.Remove("Admin");
 
             return RedirectToAction("Index", "Home");
 

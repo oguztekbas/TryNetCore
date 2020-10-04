@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
+using TryNetCore.Filter;
 
 namespace TryNetCore
 {
@@ -27,6 +27,13 @@ namespace TryNetCore
             
             
             services.AddControllersWithViews();
+            services.AddSession(
+                options => {
+                    options.IdleTimeout = TimeSpan.FromMinutes(3);//You can set Time   
+                }
+            );
+
+            services.AddScoped<AdminLoginFilter>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +56,8 @@ namespace TryNetCore
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseSession();
 
             app.UseAuthorization();
 

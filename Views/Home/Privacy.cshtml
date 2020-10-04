@@ -1,4 +1,6 @@
-﻿@{
+﻿
+@model EntityLayer.ORM.Entity.Blog
+@{
     ViewData["Title"] = "Privacy Policy";
 }
 <h1>@ViewData["Title"]</h1>
@@ -8,6 +10,7 @@
 @await Component.InvokeAsync("DenemeComponent2")
 <br />
 
+@Model.BlogName = Denemem Oldumu 
 
 
 <form action="/Home/TryFileUpload" method="post" enctype="multipart/form-data">
