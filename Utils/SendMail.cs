@@ -32,7 +32,7 @@ namespace TryNetCore.Utils
         }
 
 
-        public async static Task emailSend(string senderEmail, string receiverEmail, string senderName, string subject, string content, string senderEmailPassword)
+        public static async  Task emailSend(string senderEmail, string receiverEmail, string senderName, string subject, string content, string senderEmailPassword)
         {
 
             MailMessage mail = new MailMessage();

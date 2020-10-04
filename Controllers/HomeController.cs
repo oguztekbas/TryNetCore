@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Threading.Tasks;
+
 using EntityLayer.ORM.Entity;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using TryNetCore.Models;
@@ -26,17 +29,31 @@ namespace TryNetCore.Controllers
              host = _host;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            try
+            {
+                using(var db = new TryNetCoreContext())
+                {
+                    var blogs = await db.Blog
+                        .Include(i => i.BlogImages)
+                        .Include(i => i.BlogTags)
+                        .ToListAsync();
 
-           
-
-            return View();
-
-
+                    return View(blogs);
+                }    
+            }
+            catch(Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
-        public IActionResult BlogSingle()
+        
+    
+        [Route("bloglar/{blogroute}")]
+        
+        public IActionResult BlogSingle(string blogroute)
         {
             
 
@@ -71,11 +88,33 @@ namespace TryNetCore.Controllers
 
             [HttpPost]
             
-        public async Task<IActionResult> ContactForm(ContactForm form)
+        public async Task<JsonResult> ContactForm(ContactForm form)
         {
 
-            await TryNetCore.Utils.SendMail.emailSend("no-reply@oguztekbas.site", "info@oguztekbas.site", "Oğuz", "Oğuz İletişim Mesajı", "İletişim Mesaj İçeriği", "oguz*1234");
-            return RedirectToAction("Index","Home");
+            var result = new SuccessResult();
+            try
+            {
+                var body = new StringBuilder();
+                body.AppendLine("Ad Soyad: " + form.name + "<br />");
+                body.AppendLine("Email: " + form.email + "<br /> <br />");
+               
+                body.AppendLine("Mesaj: " + form.message + "<br />");
+
+                await TryNetCore.Utils.SendMail.emailSend("no-reply@oguztekbas.xyz", "info@oguztekbas.xyz", form.name, form.subject, body.ToString(), "Tenekeci55..55*");
+                result.isSuccess = true;
+                result.Message = "Başarılı";
+                return Json(result);
+            }
+            catch(Exception e)
+            {
+
+                result.isSuccess = false;
+                result.Message = e.Message;
+                return Json(result);
+               
+            }
+
+            
         
         }
 
@@ -88,13 +127,25 @@ namespace TryNetCore.Controllers
 
         }
 
-        public IActionResult Privacy()
+        public async Task<IActionResult> Privacy()
         {
-
-            using (var db = new TryNetCoreContext())
+            try
+            {
+                await TryNetCore.Utils.SendMail.emailSend("no-reply@oguztekbas.xyz", "info@oguztekbas.xyz", "Oğuz", "Oğuz İletişim Mesajı", "İletişim Mesaj İçeriği", "Tenekeci55..55*");
+            }
+          
+            catch(Exception e)
             {
 
-                var model = db.Blog.FirstOrDefault();
+                var a = e.Message;
+                return RedirectToAction("Index", "Home");
+            }
+            using (var db = new TryNetCoreContext())
+            {
+                
+
+
+                var model = await db.Blog.FirstOrDefaultAsync();
                 return View(model);
             }
             

@@ -1,9 +1,13 @@
 ﻿
-
+@model IEnumerable<EntityLayer.ORM.Entity.Blog>
 
 @{
 
     Layout = "~/Views/Shared/_Layout.cshtml";
+    System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo("tr-TR");
+
+    
+
 }
 
 
@@ -52,7 +56,7 @@
                     <div class="col-xs-12 col-sm-7">
                         <p>
                             Haziran 2020'de Ondokuz Mayıs Üniversitesi Bilgisayar Mühendisliği Bölümü'nden mezun oldum.
-                            <a href="https://github.com/oguztekbas/Goruntu-Isleme-ve-Robotik" target="_blank">Bitirme tezimde</a> 
+                            <a href="https://github.com/oguztekbas/Goruntu-Isleme-ve-Robotik" target="_blank">Bitirme tezimde</a>
                             arkadaşlarımla beraber Python,OpenCV ve RasperryPi kullanarak renk tasnifi yapan ve buna göre hareket eden bir robot kol prototipi yaptık.
                             Web tarafında ise kendimi Microsoft .Net teknolojilerinde geliştirdim.
                         </p>
@@ -60,11 +64,11 @@
 
                     <div class="col-xs-12 col-sm-5">
                         <div class="info-list">
-                            <ul>                     
+                            <ul>
                                 <li>
                                     <span class="title">Adres : </span>
                                     <span class="value">İstanbul-Ümraniye <br /> Samsun-Atakum</span>
-                                </li>                 
+                                </li>
                                 <li>
                                     <span class="title">Email : </span>
                                     <span class="value"><a href="mailto:oguztekbas0@gmail.com" class="__cf_email__">oguztekbas0@gmail.com</a></span>
@@ -136,248 +140,247 @@
                     </div>
                 </div>
                 <!-- End of Services -->
+                @*   <div class="white-space-30"></div>
 
-             @*   <div class="white-space-30"></div>
-
-                <!-- Testimonials -->
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12">
-                        <div class="block-title">
-                            <h3>Testimonials</h3>
+                    <!-- Testimonials -->
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <div class="block-title">
+                                <h3>Testimonials</h3>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12">
-                        <div class="testimonials owl-carousel">
-                            <!-- Testimonial 1 -->
-                            <div class="testimonial">
-                                <div class="img">
-                                    <img src="/Client/img/testimonials/testimonial-1.jpg" alt="Okan Oğuz Tekbaş">
-                                </div>
-                                <div class="text">
-                                    <p>Vivamus at molestie dui, eu ornare orci. Curabitur vel egestas dolor. Nulla condimentum nunc sit amet urna tempus finibus. Duis mollis leo id ligula pellentesque, at vehicula dui ultrices.</p>
-                                </div>
-
-                                <div class="author-info">
-                                    <h4 class="author">Julia Hickman</h4>
-                                    <h5 class="company">Omni Source</h5>
-                                    <div class="icon">
-                                        <i class="fas fa-quote-right"></i>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <div class="testimonials owl-carousel">
+                                <!-- Testimonial 1 -->
+                                <div class="testimonial">
+                                    <div class="img">
+                                        <img src="/Client/img/testimonials/testimonial-1.jpg" alt="Okan Oğuz Tekbaş">
                                     </div>
-                                </div>
-                            </div>
-                            <!-- End of Testimonial 1 -->
-                            <!-- Testimonial 2 -->
-                            <div class="testimonial">
-                                <div class="img">
-                                    <img src="/Client/img/testimonials/testimonial-2.jpg" alt="Alex Smith">
-                                </div>
-                                <div class="text">
-                                    <p>Vivamus at molestie dui, eu ornare orci. Curabitur vel egestas dolor. Nulla condimentum nunc sit amet urna tempus finibus. Duis mollis leo id ligula pellentesque, at vehicula dui ultrices.</p>
-                                </div>
-
-                                <div class="author-info">
-                                    <h4 class="author">Robert Watkins</h4>
-                                    <h5 class="company">Endicott Shoes</h5>
-                                    <div class="icon">
-                                        <i class="fas fa-quote-right"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End of Testimonial 2 -->
-                            <!-- Testimonial 3 -->
-                            <div class="testimonial">
-                                <div class="img">
-                                    <img src="/Client/img/testimonials/testimonial-3.jpg" alt="Alex Smith">
-                                </div>
-                                <div class="text">
-                                    <p>Vivamus at molestie dui, eu ornare orci. Curabitur vel egestas dolor. Nulla condimentum nunc sit amet urna tempus finibus. Duis mollis leo id ligula pellentesque, at vehicula dui ultrices.</p>
-                                </div>
-
-                                <div class="author-info">
-                                    <h4 class="author">Kristin Carroll</h4>
-                                    <h5 class="company">Helping Hand</h5>
-                                    <div class="icon">
-                                        <i class="fas fa-quote-right"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End of Testimonial 3 -->
-                        </div>
-                    </div>
-                </div>
-                <!-- End of Testimonials -->
-
-                <div class="white-space-50"></div>
-
-                <!-- Clients -->
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12">
-                        <div class="block-title">
-                            <h3>Cilents</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12">
-                        <div class="clients owl-carousel">
-
-                            <div class="client-block">
-                                <a href="#" target="_blank" title="Logo">
-                                    <img src="/Client/img/clients/client-1.png" alt="Logo">
-                                </a>
-                            </div>
-
-                            <div class="client-block">
-                                <a href="#" target="_blank" title="Logo">
-                                    <img src="/Client/img/clients/client-2.png" alt="Logo">
-                                </a>
-                            </div>
-
-                            <div class="client-block">
-                                <a href="#" target="_blank" title="Logo">
-                                    <img src="/Client/img/clients/client-3.png" alt="Logo">
-                                </a>
-                            </div>
-
-                            <div class="client-block">
-                                <a href="#" target="_blank" title="Logo">
-                                    <img src="/Client/img/clients/client-4.png" alt="Logo">
-                                </a>
-                            </div>
-
-                            <div class="client-block">
-                                <a href="#" target="_blank" title="Logo">
-                                    <img src="/Client/img/clients/client-5.png" alt="Logo">
-                                </a>
-                            </div>
-
-                            <div class="client-block">
-                                <a href="#" target="_blank" title="Logo">
-                                    <img src="/Client/img/clients/client-6.png" alt="Logo">
-                                </a>
-                            </div>
-
-                            <div class="client-block">
-                                <a href="#" target="_blank" title="Logo">
-                                    <img src="/Client/img/clients/client-7.png" alt="Logo">
-                                </a>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <!-- End of Clients -->
-
-                <div class="white-space-50"></div>
-
-                <!-- Pricing -->
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12">
-
-                        <div class="block-title">
-                            <h3>Pricing</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class=" col-xs-12 col-sm-12 ">
-                        <div class="fw-pricing clearfix row">
-
-                            <div class="fw-package-wrap col-md-6 ">
-                                <div class="fw-package">
-                                    <div class="fw-heading-row">
-                                        <span>Silver</span>
+                                    <div class="text">
+                                        <p>Vivamus at molestie dui, eu ornare orci. Curabitur vel egestas dolor. Nulla condimentum nunc sit amet urna tempus finibus. Duis mollis leo id ligula pellentesque, at vehicula dui ultrices.</p>
                                     </div>
 
-                                    <div class="fw-pricing-row">
-                                        <span>$64</span>
-                                        <small>per month</small>
+                                    <div class="author-info">
+                                        <h4 class="author">Julia Hickman</h4>
+                                        <h5 class="company">Omni Source</h5>
+                                        <div class="icon">
+                                            <i class="fas fa-quote-right"></i>
+                                        </div>
                                     </div>
-
-                                    <div class="fw-button-row">
-                                        <a href="#" target="_self" class="btn btn-secondary">Free Trial</a>
-                                    </div>
-
-                                    <div class="fw-default-row">Lorem ipsum dolor</div>
-                                    <div class="fw-default-row">Pellentesque scelerisque</div>
-                                    <div class="fw-default-row">Morbi eu sagittis</div>
                                 </div>
-                            </div>
-
-                            <div class="fw-package-wrap col-md-6 highlight-col ">
-                                <div class="fw-package">
-                                    <div class="fw-heading-row">
-                                        <span>Gold</span>
+                                <!-- End of Testimonial 1 -->
+                                <!-- Testimonial 2 -->
+                                <div class="testimonial">
+                                    <div class="img">
+                                        <img src="/Client/img/testimonials/testimonial-2.jpg" alt="Alex Smith">
+                                    </div>
+                                    <div class="text">
+                                        <p>Vivamus at molestie dui, eu ornare orci. Curabitur vel egestas dolor. Nulla condimentum nunc sit amet urna tempus finibus. Duis mollis leo id ligula pellentesque, at vehicula dui ultrices.</p>
                                     </div>
 
-                                    <div class="fw-pricing-row">
-                                        <span>$128</span>
-                                        <small>per month</small>
+                                    <div class="author-info">
+                                        <h4 class="author">Robert Watkins</h4>
+                                        <h5 class="company">Endicott Shoes</h5>
+                                        <div class="icon">
+                                            <i class="fas fa-quote-right"></i>
+                                        </div>
                                     </div>
-
-                                    <div class="fw-button-row">
-                                        <a href="#" target="_self" class="btn btn-primary">Free Trial</a>
-                                    </div>
-
-                                    <div class="fw-default-row">Lorem ipsum dolor</div>
-                                    <div class="fw-default-row">Pellentesque scelerisque</div>
-                                    <div class="fw-default-row">Morbi eu sagittis</div>
-                                    <div class="fw-default-row">Donec non diam</div>
-                                    <div class="fw-default-row"></div>
                                 </div>
+                                <!-- End of Testimonial 2 -->
+                                <!-- Testimonial 3 -->
+                                <div class="testimonial">
+                                    <div class="img">
+                                        <img src="/Client/img/testimonials/testimonial-3.jpg" alt="Alex Smith">
+                                    </div>
+                                    <div class="text">
+                                        <p>Vivamus at molestie dui, eu ornare orci. Curabitur vel egestas dolor. Nulla condimentum nunc sit amet urna tempus finibus. Duis mollis leo id ligula pellentesque, at vehicula dui ultrices.</p>
+                                    </div>
+
+                                    <div class="author-info">
+                                        <h4 class="author">Kristin Carroll</h4>
+                                        <h5 class="company">Helping Hand</h5>
+                                        <div class="icon">
+                                            <i class="fas fa-quote-right"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End of Testimonial 3 -->
                             </div>
-
                         </div>
                     </div>
-                </div>
-                <!-- End of Pricing -->
+                    <!-- End of Testimonials -->
 
-                <div class="white-space-50"></div>
+                    <div class="white-space-50"></div>
 
-                <!-- Fun Facts -->
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12">
-
-                        <div class="block-title">
-                            <h3>Fun <span>Facts</span></h3>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-xs-12 col-sm-4">
-                        <div class="fun-fact gray-default">
-                            <i class="lnr lnr-heart"></i>
-                            <h4>Happy Clients</h4>
-                            <span class="fun-fact-block-value">578</span>
-                            <span class="fun-fact-block-text"></span>
+                    <!-- Clients -->
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <div class="block-title">
+                                <h3>Cilents</h3>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="col-xs-12 col-sm-4">
-                        <div class="fun-fact gray-default">
-                            <i class="lnr lnr-clock"></i>
-                            <h4>Working Hours</h4>
-                            <span class="fun-fact-block-value">4,780</span>
-                            <span class="fun-fact-block-text"></span>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <div class="clients owl-carousel">
+
+                                <div class="client-block">
+                                    <a href="#" target="_blank" title="Logo">
+                                        <img src="/Client/img/clients/client-1.png" alt="Logo">
+                                    </a>
+                                </div>
+
+                                <div class="client-block">
+                                    <a href="#" target="_blank" title="Logo">
+                                        <img src="/Client/img/clients/client-2.png" alt="Logo">
+                                    </a>
+                                </div>
+
+                                <div class="client-block">
+                                    <a href="#" target="_blank" title="Logo">
+                                        <img src="/Client/img/clients/client-3.png" alt="Logo">
+                                    </a>
+                                </div>
+
+                                <div class="client-block">
+                                    <a href="#" target="_blank" title="Logo">
+                                        <img src="/Client/img/clients/client-4.png" alt="Logo">
+                                    </a>
+                                </div>
+
+                                <div class="client-block">
+                                    <a href="#" target="_blank" title="Logo">
+                                        <img src="/Client/img/clients/client-5.png" alt="Logo">
+                                    </a>
+                                </div>
+
+                                <div class="client-block">
+                                    <a href="#" target="_blank" title="Logo">
+                                        <img src="/Client/img/clients/client-6.png" alt="Logo">
+                                    </a>
+                                </div>
+
+                                <div class="client-block">
+                                    <a href="#" target="_blank" title="Logo">
+                                        <img src="/Client/img/clients/client-7.png" alt="Logo">
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of Clients -->
+
+                    <div class="white-space-50"></div>
+
+                    <!-- Pricing -->
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+
+                            <div class="block-title">
+                                <h3>Pricing</h3>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="col-xs-12 col-sm-4 ">
-                        <div class="fun-fact gray-default">
-                            <i class="lnr lnr-star"></i>
-                            <h4>Awards Won</h4>
-                            <span class="fun-fact-block-value">15</span>
-                            <span class="fun-fact-block-text"></span>
+                    <div class="row">
+                        <div class=" col-xs-12 col-sm-12 ">
+                            <div class="fw-pricing clearfix row">
+
+                                <div class="fw-package-wrap col-md-6 ">
+                                    <div class="fw-package">
+                                        <div class="fw-heading-row">
+                                            <span>Silver</span>
+                                        </div>
+
+                                        <div class="fw-pricing-row">
+                                            <span>$64</span>
+                                            <small>per month</small>
+                                        </div>
+
+                                        <div class="fw-button-row">
+                                            <a href="#" target="_self" class="btn btn-secondary">Free Trial</a>
+                                        </div>
+
+                                        <div class="fw-default-row">Lorem ipsum dolor</div>
+                                        <div class="fw-default-row">Pellentesque scelerisque</div>
+                                        <div class="fw-default-row">Morbi eu sagittis</div>
+                                    </div>
+                                </div>
+
+                                <div class="fw-package-wrap col-md-6 highlight-col ">
+                                    <div class="fw-package">
+                                        <div class="fw-heading-row">
+                                            <span>Gold</span>
+                                        </div>
+
+                                        <div class="fw-pricing-row">
+                                            <span>$128</span>
+                                            <small>per month</small>
+                                        </div>
+
+                                        <div class="fw-button-row">
+                                            <a href="#" target="_self" class="btn btn-primary">Free Trial</a>
+                                        </div>
+
+                                        <div class="fw-default-row">Lorem ipsum dolor</div>
+                                        <div class="fw-default-row">Pellentesque scelerisque</div>
+                                        <div class="fw-default-row">Morbi eu sagittis</div>
+                                        <div class="fw-default-row">Donec non diam</div>
+                                        <div class="fw-default-row"></div>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- End of Fun Facts --> *@
+                    <!-- End of Pricing -->
+
+                    <div class="white-space-50"></div>
+
+                    <!-- Fun Facts -->
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+
+                            <div class="block-title">
+                                <h3>Fun <span>Facts</span></h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-4">
+                            <div class="fun-fact gray-default">
+                                <i class="lnr lnr-heart"></i>
+                                <h4>Happy Clients</h4>
+                                <span class="fun-fact-block-value">578</span>
+                                <span class="fun-fact-block-text"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-4">
+                            <div class="fun-fact gray-default">
+                                <i class="lnr lnr-clock"></i>
+                                <h4>Working Hours</h4>
+                                <span class="fun-fact-block-value">4,780</span>
+                                <span class="fun-fact-block-text"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-4 ">
+                            <div class="fun-fact gray-default">
+                                <i class="lnr lnr-star"></i>
+                                <h4>Awards Won</h4>
+                                <span class="fun-fact-block-value">15</span>
+                                <span class="fun-fact-block-text"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of Fun Facts --> *@
 
             </div>
         </section>
@@ -406,7 +409,7 @@
                                 <div class="divider"></div>
                                 <div class="right-part">
                                     <h4 class="item-title">Bilgisayar Mühendisliği</h4>
-                                   
+
                                 </div>
                             </div>
 
@@ -417,7 +420,7 @@
                                 </div>
                                 <div class="divider"></div>
                                 <div class="right-part">
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -453,7 +456,7 @@
                                 </div>
                             </div>
 
-                            
+
                         </div>
 
                     </div>
@@ -461,50 +464,50 @@
                     <!-- Skills & Certificates -->
                     <div class="col-xs-12 col-sm-5">
                         <!-- Design Skills -->
-                     @*   <div class="block-title">
-                            <h3>Design <span>Skills</span></h3>
-                        </div>
+                        @*   <div class="block-title">
+                                <h3>Design <span>Skills</span></h3>
+                            </div>
 
-                        <div class="skills-info skills-second-style">
-                            <!-- Skill 1 -->
-                            <div class="skill clearfix">
-                                <h4>Web Design</h4>
-                                <div class="skill-value">95%</div>
-                            </div>
-                            <div class="skill-container skill-1">
-                                <div class="skill-percentage"></div>
-                            </div>
-                            <!-- End of Skill 1 -->
-                            <!-- Skill 2 -->
-                            <div class="skill clearfix">
-                                <h4>Print Design</h4>
-                                <div class="skill-value">65%</div>
-                            </div>
-                            <div class="skill-container skill-2">
-                                <div class="skill-percentage"></div>
-                            </div>
-                            <!-- End of Skill 2 -->
-                            <!-- Skill 3 -->
-                            <div class="skill clearfix">
-                                <h4>Logo Design</h4>
-                                <div class="skill-value">80%</div>
-                            </div>
-                            <div class="skill-container skill-3">
-                                <div class="skill-percentage"></div>
-                            </div>
-                            <!-- End of Skill 3 -->
-                            <!-- Skill 4 -->
-                            <div class="skill clearfix">
-                                <h4>Graphic Design</h4>
-                                <div class="skill-value">90%</div>
-                            </div>
-                            <div class="skill-container skill-4">
-                                <div class="skill-percentage"></div>
-                            </div>
-                            <!-- End of Skill 4 -->
+                            <div class="skills-info skills-second-style">
+                                <!-- Skill 1 -->
+                                <div class="skill clearfix">
+                                    <h4>Web Design</h4>
+                                    <div class="skill-value">95%</div>
+                                </div>
+                                <div class="skill-container skill-1">
+                                    <div class="skill-percentage"></div>
+                                </div>
+                                <!-- End of Skill 1 -->
+                                <!-- Skill 2 -->
+                                <div class="skill clearfix">
+                                    <h4>Print Design</h4>
+                                    <div class="skill-value">65%</div>
+                                </div>
+                                <div class="skill-container skill-2">
+                                    <div class="skill-percentage"></div>
+                                </div>
+                                <!-- End of Skill 2 -->
+                                <!-- Skill 3 -->
+                                <div class="skill clearfix">
+                                    <h4>Logo Design</h4>
+                                    <div class="skill-value">80%</div>
+                                </div>
+                                <div class="skill-container skill-3">
+                                    <div class="skill-percentage"></div>
+                                </div>
+                                <!-- End of Skill 3 -->
+                                <!-- Skill 4 -->
+                                <div class="skill clearfix">
+                                    <h4>Graphic Design</h4>
+                                    <div class="skill-value">90%</div>
+                                </div>
+                                <div class="skill-container skill-4">
+                                    <div class="skill-percentage"></div>
+                                </div>
+                                <!-- End of Skill 4 -->
 
-                        </div>
-                        <!-- End of Design Skills --> *@
+                            </div>
+                            <!-- End of Design Skills --> *@
 
                         <div class="white-space-10"></div>
 
@@ -628,178 +631,178 @@
                 <div class="white-space-50"></div>
 
                 <!-- Certificates -->
-            @*   <div class="row">
-                    <div class="col-xs-12 col-sm-12">
-                        <div class="block-title">
-                            <h3>Certificates</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <!-- Certificate 1 -->
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="certificate-item clearfix">
-                            <div class="certi-logo">
-                                <img src="/Client/img/clients/client-1.png" alt="logo">
-                            </div>
-
-                            <div class="certi-content">
-                                <div class="certi-title">
-                                    <h4>Psyhology of Intertnation Design</h4>
-                                </div>
-                                <div class="certi-id">
-                                    <span>Membership ID: XXXX</span>
-                                </div>
-                                <div class="certi-date">
-                                    <span>19 April 2018</span>
-                                </div>
-                                <div class="certi-company">
-                                    <span></span>
-                                </div>
+                @*   <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <div class="block-title">
+                                <h3>Certificates</h3>
                             </div>
                         </div>
                     </div>
-                    <!-- End of Certificate 1 -->
-                    <!-- Certificate 2 -->
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="certificate-item clearfix">
-                            <div class="certi-logo">
-                                <img src="/Client/img/clients/client-1.png" alt="logo">
-                            </div>
 
-                            <div class="certi-content">
-                                <div class="certi-title">
-                                    <h4>Psyhology of Intertnation Design</h4>
+                    <div class="row">
+                        <!-- Certificate 1 -->
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="certificate-item clearfix">
+                                <div class="certi-logo">
+                                    <img src="/Client/img/clients/client-1.png" alt="logo">
                                 </div>
-                                <div class="certi-id">
-                                    <span>Membership ID: XXXX</span>
-                                </div>
-                                <div class="certi-date">
-                                    <span>19 April 2018</span>
-                                </div>
-                                <div class="certi-company">
-                                    <span></span>
+
+                                <div class="certi-content">
+                                    <div class="certi-title">
+                                        <h4>Psyhology of Intertnation Design</h4>
+                                    </div>
+                                    <div class="certi-id">
+                                        <span>Membership ID: XXXX</span>
+                                    </div>
+                                    <div class="certi-date">
+                                        <span>19 April 2018</span>
+                                    </div>
+                                    <div class="certi-company">
+                                        <span></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- End of Certificate 2 -->
+                        <!-- End of Certificate 1 -->
+                        <!-- Certificate 2 -->
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="certificate-item clearfix">
+                                <div class="certi-logo">
+                                    <img src="/Client/img/clients/client-1.png" alt="logo">
+                                </div>
 
-                </div> *@
+                                <div class="certi-content">
+                                    <div class="certi-title">
+                                        <h4>Psyhology of Intertnation Design</h4>
+                                    </div>
+                                    <div class="certi-id">
+                                        <span>Membership ID: XXXX</span>
+                                    </div>
+                                    <div class="certi-date">
+                                        <span>19 April 2018</span>
+                                    </div>
+                                    <div class="certi-company">
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End of Certificate 2 -->
+
+                    </div> *@
                 <!-- End of Certificates -->
             </div>
         </section>
         <!-- End of Resume Subpage -->
         <!-- Portfolio Subpage -->
         @*<section data-id="portfolio" class="animated-section">
-            <div class="page-title">
-                <h2>Portfolio</h2>
-            </div>
+                <div class="page-title">
+                    <h2>Portfolio</h2>
+                </div>
 
-            <div class="section-content">
+                <div class="section-content">
 
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12">
-                        <!-- Portfolio Content -->
-                        <div class="portfolio-content">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <!-- Portfolio Content -->
+                            <div class="portfolio-content">
 
-                            <ul class="portfolio-filters">
-                                <li class="active">
-                                    <a class="filter btn btn-sm btn-link" data-group="category_all">All</a>
-                                </li>
-                                <li>
-                                    <a class="filter btn btn-sm btn-link" data-group="category_detailed">Detailed</a>
-                                </li>
-                                <li>
-                                    <a class="filter btn btn-sm btn-link" data-group="category_mockups">Mockups</a>
-                                </li>
-                                <li>
-                                    <a class="filter btn btn-sm btn-link" data-group="category_soundcloud">SoundCloud</a>
-                                </li>
-                                <li>
-                                    <a class="filter btn btn-sm btn-link" data-group="category_vimeo-videos">Vimeo Videos</a>
-                                </li>
-                                <li>
-                                    <a class="filter btn btn-sm btn-link" data-group="category_youtube-videos">YouTube Videos</a>
-                                </li>
-                            </ul>
+                                <ul class="portfolio-filters">
+                                    <li class="active">
+                                        <a class="filter btn btn-sm btn-link" data-group="category_all">All</a>
+                                    </li>
+                                    <li>
+                                        <a class="filter btn btn-sm btn-link" data-group="category_detailed">Detailed</a>
+                                    </li>
+                                    <li>
+                                        <a class="filter btn btn-sm btn-link" data-group="category_mockups">Mockups</a>
+                                    </li>
+                                    <li>
+                                        <a class="filter btn btn-sm btn-link" data-group="category_soundcloud">SoundCloud</a>
+                                    </li>
+                                    <li>
+                                        <a class="filter btn btn-sm btn-link" data-group="category_vimeo-videos">Vimeo Videos</a>
+                                    </li>
+                                    <li>
+                                        <a class="filter btn btn-sm btn-link" data-group="category_youtube-videos">YouTube Videos</a>
+                                    </li>
+                                </ul>
 
-                            <!-- Portfolio Grid -->
-                            <div class="portfolio-grid three-columns">
+                                <!-- Portfolio Grid -->
+                                <div class="portfolio-grid three-columns">
 
-                                <figure class="item lbaudio" data-groups='["category_all", "category_soundcloud"]'>
-                                    <div class="portfolio-item-img">
-                                        <img src="/Client/img/portfolio/1.jpg" alt="SoundCloud Audio" title="" />
-                                        <a href="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/221650664&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true" class="lightbox mfp-iframe" title="SoundCloud Audio"></a>
-                                    </div>
+                                    <figure class="item lbaudio" data-groups='["category_all", "category_soundcloud"]'>
+                                        <div class="portfolio-item-img">
+                                            <img src="/Client/img/portfolio/1.jpg" alt="SoundCloud Audio" title="" />
+                                            <a href="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/221650664&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true" class="lightbox mfp-iframe" title="SoundCloud Audio"></a>
+                                        </div>
 
-                                    <i class="fa fa-volume-up"></i>
-                                    <h4 class="name">SoundCloud Audio</h4>
-                                    <span class="category">SoundCloud</span>
-                                </figure>
+                                        <i class="fa fa-volume-up"></i>
+                                        <h4 class="name">SoundCloud Audio</h4>
+                                        <span class="category">SoundCloud</span>
+                                    </figure>
 
-                                <figure class="item standard" data-groups='["category_all", "category_detailed"]'>
-                                    <div class="portfolio-item-img">
-                                        <img src="/Client/img/portfolio/2.jpg" alt="Media Project 2" title="" />
-                                        <a href="portfolio-1.html" class="ajax-page-load"></a>
-                                    </div>
+                                    <figure class="item standard" data-groups='["category_all", "category_detailed"]'>
+                                        <div class="portfolio-item-img">
+                                            <img src="/Client/img/portfolio/2.jpg" alt="Media Project 2" title="" />
+                                            <a href="portfolio-1.html" class="ajax-page-load"></a>
+                                        </div>
 
-                                    <i class="far fa-file-alt"></i>
-                                    <h4 class="name">Detailed Project 2</h4>
-                                    <span class="category">Detailed</span>
-                                </figure>
+                                        <i class="far fa-file-alt"></i>
+                                        <h4 class="name">Detailed Project 2</h4>
+                                        <span class="category">Detailed</span>
+                                    </figure>
 
-                                <figure class="item lbvideo" data-groups='["category_all", "category_vimeo-videos"]'>
-                                    <div class="portfolio-item-img">
-                                        <img src="/Client/img/portfolio/3.jpg" alt="Vimeo Video 1" title="" />
-                                        <a href="https://player.vimeo.com/video/158284739" class="lightbox mfp-iframe" title="Vimeo Video 1"></a>
-                                    </div>
+                                    <figure class="item lbvideo" data-groups='["category_all", "category_vimeo-videos"]'>
+                                        <div class="portfolio-item-img">
+                                            <img src="/Client/img/portfolio/3.jpg" alt="Vimeo Video 1" title="" />
+                                            <a href="https://player.vimeo.com/video/158284739" class="lightbox mfp-iframe" title="Vimeo Video 1"></a>
+                                        </div>
 
-                                    <i class="fas fa-video"></i>
-                                    <h4 class="name">Vimeo Video 1</h4>
-                                    <span class="category">Vimeo Videos</span>
-                                </figure>
+                                        <i class="fas fa-video"></i>
+                                        <h4 class="name">Vimeo Video 1</h4>
+                                        <span class="category">Vimeo Videos</span>
+                                    </figure>
 
-                                <figure class="item standard" data-groups='["category_all", "category_detailed"]'>
-                                    <div class="portfolio-item-img">
-                                        <img src="/Client/img/portfolio/4.jpg" alt="Media Project 1" title="" />
-                                        <a href="portfolio-1.html" class="ajax-page-load"></a>
-                                    </div>
+                                    <figure class="item standard" data-groups='["category_all", "category_detailed"]'>
+                                        <div class="portfolio-item-img">
+                                            <img src="/Client/img/portfolio/4.jpg" alt="Media Project 1" title="" />
+                                            <a href="portfolio-1.html" class="ajax-page-load"></a>
+                                        </div>
 
-                                    <i class="far fa-file-alt"></i>
-                                    <h4 class="name">Detailed Project 1</h4>
-                                    <span class="category">Detailed</span>
-                                </figure>
+                                        <i class="far fa-file-alt"></i>
+                                        <h4 class="name">Detailed Project 1</h4>
+                                        <span class="category">Detailed</span>
+                                    </figure>
 
-                                <figure class="item lbimage" data-groups='["category_all", "category_mockups"]'>
-                                    <div class="portfolio-item-img">
-                                        <img src="/Client/img/portfolio/5.jpg" alt="Mockup Design 1" title="" />
-                                        <a class="lightbox" title="Mockup Design 1" href="/Client/img/portfolio/full/5.jpg"></a>
-                                    </div>
+                                    <figure class="item lbimage" data-groups='["category_all", "category_mockups"]'>
+                                        <div class="portfolio-item-img">
+                                            <img src="/Client/img/portfolio/5.jpg" alt="Mockup Design 1" title="" />
+                                            <a class="lightbox" title="Mockup Design 1" href="/Client/img/portfolio/full/5.jpg"></a>
+                                        </div>
 
-                                    <i class="far fa-image"></i>
-                                    <h4 class="name">Mockup Design 1</h4>
-                                    <span class="category">Mockups</span>
-                                </figure>
+                                        <i class="far fa-image"></i>
+                                        <h4 class="name">Mockup Design 1</h4>
+                                        <span class="category">Mockups</span>
+                                    </figure>
 
-                                <figure class="item lbvideo" data-groups='["category_all", "category_youtube-videos"]'>
-                                    <div class="portfolio-item-img">
-                                        <img src="/Client/img/portfolio/6.jpg" alt="YouTube Video 1" title="" />
-                                        <a href="https://www.youtube.com/embed/bg0gv2YpIok" class="lightbox mfp-iframe" title="YouTube Video 1"></a>
-                                    </div>
+                                    <figure class="item lbvideo" data-groups='["category_all", "category_youtube-videos"]'>
+                                        <div class="portfolio-item-img">
+                                            <img src="/Client/img/portfolio/6.jpg" alt="YouTube Video 1" title="" />
+                                            <a href="https://www.youtube.com/embed/bg0gv2YpIok" class="lightbox mfp-iframe" title="YouTube Video 1"></a>
+                                        </div>
 
-                                    <i class="fas fa-video"></i>
-                                    <h4 class="name">YouTube Video 1</h4>
-                                    <span class="category">YouTube Videos</span>
-                                </figure>
+                                        <i class="fas fa-video"></i>
+                                        <h4 class="name">YouTube Video 1</h4>
+                                        <span class="category">YouTube Videos</span>
+                                    </figure>
+                                </div>
                             </div>
+                            <!-- End of Portfolio Content -->
                         </div>
-                        <!-- End of Portfolio Content -->
                     </div>
                 </div>
-            </div>
-        </section> *@
+            </section> *@
         <!-- End of Portfolio Subpage -->
         <!-- Blog Subpage -->
         <section data-id="blog" class="animated-section">
@@ -813,88 +816,31 @@
                         <div class="blog-masonry two-columns clearfix">
 
                             <!-- Blog Post 1 -->
-                            <div class="item post-1">
-                                <div class="blog-card">
-                                    <div class="media-block">
-                                        <div class="category">
-                                            <a href="#" title="View all posts in Design">Design</a>
+                            @foreach (var blog in Model)
+                            {
+                                <div class="item post-1">
+                                    <div class="blog-card">
+                                        <div class="media-block">
+                                            <div class="category">
+                                                <a href="@Url.Action("BlogSingle","Home",new { blogroute = blog.BlogRouteUrl })" title="@blog.BlogName">@blog.BlogCategoryName</a>
+                                            </div>
+                                            <a href="@Url.Action("BlogSingle","Home",new { blogroute = blog.BlogRouteUrl })">
+                                                <img src="@blog.BlogImagePath" class="size-blog-masonry-image-two-c" alt="@blog.BlogName" title="@blog.BlogName" />
+                                                <div class="mask"></div>
+                                            </a>
                                         </div>
-                                        <a href="blog-post-1.html">
-                                            <img src="/Client/img/blog/blog_post_1.jpg" class="size-blog-masonry-image-two-c" alt="Why I Switched to Sketch For UI Design" title="" />
-                                            <div class="mask"></div>
-                                        </a>
-                                    </div>
-                                    <div class="post-info">
-                                        <div class="post-date">05 Mar 2020</div>
-                                        <a href="blog-post-1.html">
-                                            <h4 class="blog-item-title">Why I Switched to Sketch For UI Design</h4>
-                                        </a>
+                                        <div class="post-info">
+                                            <div class="post-date">@(blog.BlogPostDate.ToString("dd MMMM yyyy", ci))</div>
+                                            <a href="@Url.Action("BlogSingle","Home",new { blogroute = blog.BlogRouteUrl })">
+                                                <h4 class="blog-item-title">@blog.BlogName</h4>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            }
+
                             <!-- End of Blog Post 1 -->
                             <!-- Blog Post 2 -->
-                            <div class="item post-2">
-                                <div class="blog-card">
-                                    <div class="media-block">
-                                        <div class="category">
-                                            <a href="#" title="View all posts in UI">UI</a>
-                                        </div>
-                                        <a href="blog-post-1.html">
-                                            <img src="/Client/img/blog/blog_post_2.jpg" class="size-blog-masonry-image-two-c" alt="Best Practices for Animated Progress Indicators" title="" />
-                                            <div class="mask"></div>
-                                        </a>
-                                    </div>
-                                    <div class="post-info">
-                                        <div class="post-date">23 Feb 2020</div>
-                                        <a href="blog-post-1.html">
-                                            <h4 class="blog-item-title">Best Practices for Animated Progress Indicators</h4>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End of Blog Post 2 -->
-                            <!-- Blog Post 3 -->
-                            <div class="item post-1">
-                                <div class="blog-card">
-                                    <div class="media-block">
-                                        <div class="category">
-                                            <a href="#" title="View all posts in Design">Design</a>
-                                        </div>
-                                        <a href="blog-post-1.html">
-                                            <img src="/Client/img/blog/blog_post_3.jpg" class="size-blog-masonry-image-two-c" alt="Designing the Perfect Feature Comparison Table" title="" />
-                                            <div class="mask"></div>
-                                        </a>
-                                    </div>
-                                    <div class="post-info">
-                                        <div class="post-date">06 Feb 2020</div>
-                                        <a href="blog-post-1.html">
-                                            <h4 class="blog-item-title">Designing the Perfect Feature Comparison Table</h4>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End of Blog Post 3 -->
-                            <!-- Blog Post 4 -->
-                            <div class="item post-2">
-                                <div class="blog-card">
-                                    <div class="media-block">
-                                        <div class="category">
-                                            <a href="#" title="View all posts in E-Commerce">UI</a>
-                                        </div>
-                                        <a href="blog-post-1.html">
-                                            <img src="/Client/img/blog/blog_post_4.jpg" class="size-blog-masonry-image-two-c" alt="An Overview of E-Commerce Platforms" title="" />
-                                            <div class="mask"></div>
-                                        </a>
-                                    </div>
-                                    <div class="post-info">
-                                        <div class="post-date">07 Jan 2020</div>
-                                        <a href="blog-post-1.html">
-                                            <h4 class="blog-item-title">An Overview of E-Commerce Platforms</h4>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
                             <!-- End of Blog Post 4 -->
                         </div>
                     </div>
@@ -923,11 +869,11 @@
                         </div>
 
                         @*<div class="lm-info-block gray-default">
-                            <i class="lnr lnr-phone-handset"></i>
-                            <h4>415-832-2000</h4>
-                            <span class="lm-info-block-value"></span>
-                            <span class="lm-info-block-text"></span>
-                        </div>*@
+                                <i class="lnr lnr-phone-handset"></i>
+                                <h4>415-832-2000</h4>
+                                <span class="lm-info-block-value"></span>
+                                <span class="lm-info-block-text"></span>
+                            </div>*@
 
                         <div class="lm-info-block gray-default">
                             <i class="lnr lnr-envelope"></i>
@@ -937,18 +883,18 @@
                         </div>
 
                         @*<div class="lm-info-block gray-default">
-                            <i class="lnr lnr-checkmark-circle"></i>
-                            <h4>Freelance Available</h4>
-                            <span class="lm-info-block-value"></span>
-                            <span class="lm-info-block-text"></span>
-                        </div>*@
+                                <i class="lnr lnr-checkmark-circle"></i>
+                                <h4>Freelance Available</h4>
+                                <span class="lm-info-block-value"></span>
+                                <span class="lm-info-block-text"></span>
+                            </div>*@
 
 
                     </div>
                     <!-- End of Contact Info -->
                     <!-- Contact Form -->
                     <div class="col-xs-12 col-sm-8">
-                        
+
                         <div class="block-title">
                             <h3> <span>İletişim Formu</span></h3>
                         </div>
@@ -961,21 +907,21 @@
                                 <div class="fields clearfix">
                                     <div class="left-column">
                                         <div class="form-group form-group-with-icon">
-                                            <input id="form_name" type="text" name="name" class="form-control" placeholder="Ad" >
+                                            <input id="form_name" type="text" name="name" class="form-control" placeholder="Ad">
                                             <label>Ad</label>
                                             <div class="form-control-border"></div>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
                                         <div class="form-group form-group-with-icon">
-                                            <input id="form_email" type="text" name="email" class="form-control" placeholder="Email" >
+                                            <input id="form_email" type="text" name="email" class="form-control" placeholder="Email">
                                             <label>Email</label>
                                             <div class="form-control-border"></div>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
                                         <div class="form-group form-group-with-icon">
-                                            <input id="form_subject" type="text" name="subject" class="form-control" placeholder="Konu" >
+                                            <input id="form_subject" type="text" name="subject" class="form-control" placeholder="Konu">
                                             <label>Konu</label>
                                             <div class="form-control-border"></div>
                                             <div class="help-block with-errors"></div>
@@ -983,7 +929,7 @@
                                     </div>
                                     <div class="right-column">
                                         <div class="form-group form-group-with-icon">
-                                            <textarea id="form_message" name="message" class="form-control" placeholder="Mesaj" rows="7" ></textarea>
+                                            <textarea id="form_message" name="message" class="form-control" placeholder="Mesaj" rows="7"></textarea>
                                             <label>Mesaj</label>
                                             <div class="form-control-border"></div>
                                             <div class="help-block with-errors"></div>
@@ -1033,11 +979,11 @@
             </a>
         </li>
         @*<li>
-            <a href="#portfolio" class="nav-anim">
-                <span class="menu-icon lnr lnr-briefcase"></span>
-                <span class="link-text">Portfolyo</span>
-            </a>
-        </li>*@
+                <a href="#portfolio" class="nav-anim">
+                    <span class="menu-icon lnr lnr-briefcase"></span>
+                    <span class="link-text">Portfolyo</span>
+                </a>
+            </li>*@
         <li>
             <a href="#blog" class="nav-anim">
                 <span class="menu-icon lnr lnr-book"></span>
@@ -1051,7 +997,7 @@
             </a>
         </li>
         <li>
-            <a href="@Url.Action("Index","Admin")" class="nav-anim">
+            <a id="yonetimlink" href="@Url.Action("Index","Admin")" class="nav-anim">
                 <i class="fa fa-user" aria-hidden="true"></i>
                 <span class="link-text"> Yönetim</span>
             </a>
@@ -1059,7 +1005,7 @@
 
 
 
-        
+
     </ul>
 
 }
@@ -1067,7 +1013,18 @@
 @section Scripts {
 
 
-   
+    <script>
+
+        $('#yonetimlink').click(function (event) {
+
+            event.preventDefault();
+            let url = window.location.origin;
+            window.location.assign(url + '/Admin/Index');
+
+        });
+
+
+    </script>
 
     <script>
 
@@ -1114,20 +1071,20 @@
                     processData: false,
                     success: function (result) {
                         console.log(result.message);
-
+                        toastr.success('Mesajınız Başarıyla Gönderildi');
 
                     },
                     error: function (result) {
                         console.log(result.message);
-
+                        toastr.error('Mesajınız Gönderilemedi.Hata!');
                     }
                 });
             }
 
             else {
-               
-                toastr.warning('Warning');
-                
+
+                toastr.error('Bilgileri Eksiksiz Giriniz');
+
                 console.log("ValidationHatası");
 
             }
