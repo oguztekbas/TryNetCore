@@ -5,3 +5,6 @@
 # Try to View Component
 # Task-Async-Await Keywords (Asynchronous Programming)
 # Admin Panel(panelresim.png)
+# Using Html Agility Pack for Blogs
+# ActionFilter Configurations in .Net Core
+
