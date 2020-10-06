@@ -119,7 +119,7 @@ namespace TryNetCore.Controllers
                
                 body.AppendLine("Mesaj: " + form.message + "<br />");
 
-                await TryNetCore.Utils.SendMail.emailSend("no-reply@oguztekbas.xyz", "info@oguztekbas.xyz", form.name, form.subject, body.ToString(), "Tenekeci55..55*");
+                await TryNetCore.Utils.SendMail.emailSend("gondericiemail", "aliciemail", form.name, form.subject, body.ToString(), "Şifre");
                 result.isSuccess = true;
                 result.Message = "Başarılı";
                 return Json(result);
@@ -137,38 +137,7 @@ namespace TryNetCore.Controllers
         
         }
 
-        //[HttpPost]
-        //public async Task<IActionRessult> TryFileUpload(IFormFile file)
-        //{
-
-        //   string isSuccess = await TryNetCore.Utils.FileUpload.ImageUpload(host.ContentRootPath, file, "12c73c34-5f66-451d-9eed-399ec3b28860.jpg");
-        //   return RedirectToAction("Index", "Home");
-
-        //}
-
-        //public async Task<IActionResult> Privacy()
-        //{
-        //    try
-        //    {
-              
-        //    }
-          
-        //    catch(Exception e)
-        //    {
-
-        //        var a = e.Message;
-        //        return RedirectToAction("Index", "Home");
-        //    }
-        //    using (var db = new TryNetCoreContext())
-        //    {
-                
-
-
-        //        var model = await db.Blog.FirstOrDefaultAsync();
-        //        return View(model);
-        //    }
-            
-        //}
+        
 
         [ResponseCache(Duration = 1, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
