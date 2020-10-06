@@ -65,18 +65,25 @@ namespace TryNetCore
             app.UseEndpoints(endpoints =>
             {
 
-             endpoints.MapControllerRoute(             //Custom Routing In .Net Core
-              name: "admin-index",
-              pattern: "admin",
-              defaults: new { controller = "Admin", action = "Index" });
+             
+
+                
 
                 endpoints.MapControllerRoute(             //Custom Routing In .Net Core
              name: "admin-bloglar",
              pattern: "bloglar",
              defaults: new { controller = "Admin", action = "BlogIndex" });
 
-              
-           
+                endpoints.MapControllerRoute(             //Custom Routing In .Net Core
+                name: "admin-index",
+                pattern: "yonetim-paneli",
+                defaults: new { controller = "Admin", action = "Index" });
+
+                endpoints.MapControllerRoute(             //Custom Routing In .Net Core
+              name: "admin-login",
+              pattern: "giris",
+              defaults: new { controller = "Admin", action = "Login" });
+
 
 
 

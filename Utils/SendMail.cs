@@ -9,27 +9,7 @@ namespace TryNetCore.Utils
 {
     public class SendMail
     {
-        public static void Send(string body, string subjectMail)
-        {
-            var fromAddress = new MailAddress("*", subjectMail);
-            var toAddress = new MailAddress("*");
-            using (var smtp = new SmtpClient
-            {
-                Host = "smtp.yandex.com.tr",
-                Port = 587,
-                EnableSsl = false,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false,
-                Credentials = new NetworkCredential(fromAddress.Address, "*")
-                //trololol kısmı e-posta adresinin şifresi
-            })
-            {
-                using (var message = new MailMessage(fromAddress, toAddress) { Subject = subjectMail, Body = body })
-                {
-                    smtp.Send(message);
-                }
-            }
-        }
+        
 
 
         public static async  Task emailSend(string senderEmail, string receiverEmail, string senderName, string subject, string content, string senderEmailPassword)

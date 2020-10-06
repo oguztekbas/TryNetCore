@@ -53,9 +53,28 @@ namespace TryNetCore.Controllers
     
         [Route("bloglar/{blogroute}")]
         
-        public IActionResult BlogSingle(string blogroute)
+        public async Task<IActionResult> BlogSingle(string blogroute)
         {
             
+            try
+            {
+                using(var db = new TryNetCoreContext())
+                {
+
+                    var blog = await db.Blog
+                        .Where(i => i.BlogRouteUrl == blogroute)
+                        .Include(i => i.BlogTags)
+                        .Include(i => i.BlogImages)
+                        .FirstOrDefaultAsync();
+
+                    return View(blog);
+                }
+                
+            }
+            catch(Exception e)
+            {
+
+            }
 
             return View();
 
@@ -118,38 +137,38 @@ namespace TryNetCore.Controllers
         
         }
 
-        [HttpPost]
-        public async Task<IActionResult> TryFileUpload(IFormFile file)
-        {
+        //[HttpPost]
+        //public async Task<IActionRessult> TryFileUpload(IFormFile file)
+        //{
 
-           string isSuccess = await TryNetCore.Utils.FileUpload.ImageUpload(host.ContentRootPath, file, "12c73c34-5f66-451d-9eed-399ec3b28860.jpg");
-           return RedirectToAction("Index", "Home");
+        //   string isSuccess = await TryNetCore.Utils.FileUpload.ImageUpload(host.ContentRootPath, file, "12c73c34-5f66-451d-9eed-399ec3b28860.jpg");
+        //   return RedirectToAction("Index", "Home");
 
-        }
+        //}
 
-        public async Task<IActionResult> Privacy()
-        {
-            try
-            {
-                await TryNetCore.Utils.SendMail.emailSend("no-reply@oguztekbas.xyz", "info@oguztekbas.xyz", "Oğuz", "Oğuz İletişim Mesajı", "İletişim Mesaj İçeriği", "Tenekeci55..55*");
-            }
+        //public async Task<IActionResult> Privacy()
+        //{
+        //    try
+        //    {
+              
+        //    }
           
-            catch(Exception e)
-            {
+        //    catch(Exception e)
+        //    {
 
-                var a = e.Message;
-                return RedirectToAction("Index", "Home");
-            }
-            using (var db = new TryNetCoreContext())
-            {
+        //        var a = e.Message;
+        //        return RedirectToAction("Index", "Home");
+        //    }
+        //    using (var db = new TryNetCoreContext())
+        //    {
                 
 
 
-                var model = await db.Blog.FirstOrDefaultAsync();
-                return View(model);
-            }
+        //        var model = await db.Blog.FirstOrDefaultAsync();
+        //        return View(model);
+        //    }
             
-        }
+        //}
 
         [ResponseCache(Duration = 1, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

@@ -19,7 +19,7 @@ namespace TryNetCore.Filter
           
             if (session == null)
             {
-                context.Result = new RedirectResult("~/Admin/Login");
+                context.Result = new RedirectResult("https://oguztekbas.xyz/giris");
                 return;
             }
             
