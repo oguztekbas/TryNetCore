@@ -5,6 +5,8 @@
 # Try to View Component
 # Task-Async-Await Keywords (Asynchronous Programming)
 # Admin Panel(panelresim.png)
-# Using Html Agility Pack for Blogs
+# Using Html Agility Pack for Blogs (SummerNote Editor)
 # ActionFilter Configurations in .Net Core
+
+# jQuery Ajax Post Actions
 
